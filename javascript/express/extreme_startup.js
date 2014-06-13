@@ -6,17 +6,26 @@ var answer = function(question, req, res) {
     var largestMatch = question.match(/which of the following numbers is the largest:(.*)/);
     var bananaColourMatch = question.match(/what colour is a banana/);
     var spainCurrencyMatch = question.match(/what currency did Spain use before the Euro/);
+    var minusMatch = question.match(/what is (\d) minus (\d)/);
+    var eiffelMatch = question.match(/which city is the Eiffel tower in/);
+    var pmMatch = question.match(/who is the Prime Minister of Great Britain/);
     if(largestMatch){
-        console.log('largest number', largestMatch[1].split(','));
         var numbers = _.map(largestMatch[1].split(','), function(number) {
             return Number(number);
         });
-        console.log('numbers', numbers);
         return _.max(numbers);
     } else if (bananaColourMatch) {
         return 'yellow';
     } else if (spainCurrencyMatch) {
         return 'peseta';
+    } else if (minusMatch) {
+        return _.reduce(minusMatch.splice(1), function(number1, number2) {
+            return number1 - number2;
+        });
+    } else if (eiffelMatch) {
+        return 'Paris';
+    } else if (pmMatch) {
+        return 'David Cameron';
     }
 };
 
@@ -30,7 +39,7 @@ app.get("/", function(req, res) {
     var q = req.param("q");
     var a = answer(q, req, res);
     console.log("Q: \"" + q + "\" A:\"" + a + "\"");
-    res.end(a);
+    res.send(200, a);
 });
 
 app.listen(8000, "localhost");
