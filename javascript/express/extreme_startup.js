@@ -1,14 +1,16 @@
 var express = require("express");
-
-var answers = {
-    "what is your name": "Darragh-Carlos"
-};
+var _ = require('lodash');
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    var actualQuestion = (question.split(':')[1]).trim();
-    console.log('actualQuestion', actualQuestion);
-    return answers[actualQuestion];
+    var largestMatch = question.match(/which of the following numbers is the largest:(.*)/);
+    if(largestMatch){
+        console.log('largest number', largestMatch[1].split(','));
+        var numbers = _.map(largestMatch[1].split(','), function(number) {
+            return Number(number);
+        });
+        return _.max(numbers);
+    }
 };
 
 var app = express();
