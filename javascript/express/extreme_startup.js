@@ -1,11 +1,16 @@
 var express = require("express");
 
-/* Reimplement this function to answer questions. */
-var answer = function(question, req, res) {
-    return "Bodil";
+var answers = {
+    "what is your name": "Darragh-Carlos"
 };
 
-var app = express.createServer();
+/* Reimplement this function to answer questions. */
+var answer = function(question, req, res) {
+    console.log(question);
+    return "Darragh-Carlos";
+};
+
+var app = express();
 app.use(express.cookieParser());
 app.use(express.session({
     "secret": "bodilpwnz"
@@ -18,6 +23,5 @@ app.get("/", function(req, res) {
     res.end(a);
 });
 
-app.listen(1337, "0.0.0.0");
-console.log("Server running on http://0.0.0.0:1337/");
-
+app.listen(8000, "localhost");
+console.log("Server running on localhost");
