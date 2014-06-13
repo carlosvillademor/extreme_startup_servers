@@ -4,12 +4,19 @@ var _ = require('lodash');
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
     var largestMatch = question.match(/which of the following numbers is the largest:(.*)/);
+    var bananaColourMatch = question.match(/what colour is a banana/);
+    var spainCurrencyMatch = question.match(/what currency did Spain use before the Euro/);
     if(largestMatch){
         console.log('largest number', largestMatch[1].split(','));
         var numbers = _.map(largestMatch[1].split(','), function(number) {
             return Number(number);
         });
+        console.log('numbers', numbers);
         return _.max(numbers);
+    } else if (bananaColourMatch) {
+        return 'yellow';
+    } else if (spainCurrencyMatch) {
+        return 'peseta';
     }
 };
 
