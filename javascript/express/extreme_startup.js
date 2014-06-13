@@ -4,6 +4,7 @@ var _ = require('lodash');
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
 
+//    var fibonnaciMatch = question.match(/what is the (.*) number in the Fibonacci sequence/);
     var largestMatch = question.match(/which of the following numbers is the largest:(.*)/);
     var bananaColourMatch = question.match(/what colour is a banana/);
     var spainCurrencyMatch = question.match(/what currency did Spain use before the Euro/);
@@ -22,16 +23,16 @@ var answer = function(question, req, res) {
     } else if (spainCurrencyMatch) {
         return 'peseta';
     } else if (minusMatch) {
-        return _.reduce(minusMatch.splice(1), function(number1, number2) {
+        return (_.reduce(minusMatch.splice(1), function(number1, number2) {
             return number1 - number2;
-        });
+        })).toString();
     } else if (doublePlusMatch) {
         return _.reduce(doublePlusMatch.splice(1), function(number1, number2) {
-            return number1 + number2;
+            return Number(number1) + Number(number2);
         });
     } else if (plusMatch) {
         return _.reduce(plusMatch.splice(1), function(number1, number2) {
-            return number1 + number2;
+            return Number(number1) + Number(number2);
         });
     } else if (eiffelMatch) {
         return 'Paris';
@@ -41,8 +42,8 @@ var answer = function(question, req, res) {
 };
 
 function fibonnaci(number) {
-    if(number==1 || number ==2) return number;
-    fibonnaci(number)
+    if(number===1 || number===2) return number-1;
+    return fibonnaci(number-2) + fibonnaci(number-1);
 }
 
 var app = express();
@@ -55,7 +56,7 @@ app.get("/", function(req, res) {
     var q = req.param("q");
     var a = answer(q, req, res);
     console.log("Q: \"" + q + "\" A:\"" + a + "\"");
-    res.end(a);
+    res.send(a);
 });
 
 app.listen(8000, "localhost");
