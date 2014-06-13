@@ -4,7 +4,7 @@
     <list default="true" id="326dd794-6397-44d8-a5a4-995413120f19" name="Default" comment="" />
     <ignored path="javascript.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/extreme_startup.js" changelist="326dd794-6397-44d8-a5a4-995413120f19" time="1402670627613" ignored="false" />
+    <file path="/extreme_startup.js" changelist="326dd794-6397-44d8-a5a4-995413120f19" time="1402671137282" ignored="false" />
     <file path="/package.json" changelist="326dd794-6397-44d8-a5a4-995413120f19" time="1402669118971" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="extreme_startup.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/express/extreme_startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="61" selection-start="476" selection-end="476" vertical-scroll-proportion="0.16483517">
+            <state line="35" column="5" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.72115386">
               <folding />
             </state>
           </provider>
@@ -245,7 +245,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/express/extreme_startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="61" selection-start="476" selection-end="476" vertical-scroll-proportion="0.16483517">
+        <state line="35" column="5" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.72115386">
           <folding />
         </state>
       </provider>
