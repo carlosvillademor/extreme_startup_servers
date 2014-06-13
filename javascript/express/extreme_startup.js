@@ -6,7 +6,7 @@ var answer = function(question, req, res) {
     var largestMatch = question.match(/which of the following numbers is the largest:(.*)/);
     var bananaColourMatch = question.match(/what colour is a banana/);
     var spainCurrencyMatch = question.match(/what currency did Spain use before the Euro/);
-    var minusMatch = question.match(/what is (\d) minus (\d)/);
+    var minusMatch = question.match(/what is (\d+) minus (\d+)/);
     var eiffelMatch = question.match(/which city is the Eiffel tower in/);
     var pmMatch = question.match(/who is the Prime Minister of Great Britain/);
     if(largestMatch){
