@@ -6,8 +6,9 @@ var answers = {
 
 /* Reimplement this function to answer questions. */
 var answer = function(question, req, res) {
-    console.log(question);
-    return "Darragh-Carlos";
+    var actualQuestion = (question.split(':')[1]).trim();
+    console.log('actualQuestion', actualQuestion);
+    return answers[actualQuestion];
 };
 
 var app = express();
